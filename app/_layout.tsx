@@ -24,8 +24,8 @@ function RootNavigator() {
       }}
     >
       <Stack.Protected guard={!!token}>
-        <Stack.Screen name="accounts" />
-        <Stack.Screen name="transactions" />
+        <Stack.Screen name="accounts/index" />
+        <Stack.Screen name="accounts/[id]" />
         <Stack.Screen name="summary" />
       </Stack.Protected>
       <Stack.Protected guard={!token}>
