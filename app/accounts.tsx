@@ -1,7 +1,10 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Link } from "expo-router";
+import { useAuth } from "../context/AuthContext";
 
 export default function AccountsScreen() {
+  const { logout } = useAuth();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Accounts</Text>
@@ -12,6 +15,10 @@ export default function AccountsScreen() {
       <Link href="/summary" style={styles.link}>
         View Summary →
       </Link>
+
+      <Pressable onPress={logout} style={styles.logoutButton}>
+        <Text style={styles.logoutText}>Log out</Text>
+      </Pressable>
     </View>
   );
 }
@@ -21,4 +28,6 @@ const styles = StyleSheet.create({
   title: { color: "#EDE6D6", fontSize: 24, fontWeight: "700" },
   subtitle: { color: "#8CA0BC", fontSize: 13, marginBottom: 8 },
   link: { color: "#E8A33D", fontSize: 16, fontWeight: "600" },
+  logoutButton: { marginTop: 24 },
+  logoutText: { color: "#DD7A56", fontSize: 14, fontWeight: "600" },
 });
