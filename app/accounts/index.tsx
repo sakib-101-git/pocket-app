@@ -3,6 +3,7 @@ import { Link } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../context/AuthContext";
 import { authenticatedFetch } from "../../lib/api";
+import { LinkBankButton } from "../../components/LinkBankButton";
 
 type Account = {
   id: number;
@@ -25,6 +26,7 @@ export default function AccountsScreen() {
         <Pressable onPress={logout}>
           <Text style={styles.logoutText}>Log out</Text>
         </Pressable>
+        <LinkBankButton />
       </View>
 
       {isLoading && <ActivityIndicator color="#E8A33D" style={{ marginTop: 24 }} />}
