@@ -38,7 +38,9 @@ export function LinkBankButton() {
   const { open, ready } = usePlaidLink({
     token: linkToken,
     onSuccess: (publicToken) => {
-      exchangeMutation.mutate(publicToken);
+      if (publicToken) {
+        exchangeMutation.mutate(publicToken);
+      }
     },
     onExit: () => {
       setLinkToken(null);
